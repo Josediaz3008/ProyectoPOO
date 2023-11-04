@@ -9,7 +9,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import util.SceneManagment;
+import model.UserLogin;
+import javafx.scene.control.Alert.AlertType;
+import util.SceneManager;
 
 
 public class LoginController implements Initializable{
@@ -23,7 +25,7 @@ public class LoginController implements Initializable{
 	
 	// Text Fields
 	@FXML
-	private TextField tfUsername;
+	private TextField tfUserName;
 	
 	@FXML
 	private TextField tfPassword;
@@ -35,12 +37,43 @@ public class LoginController implements Initializable{
 		buttonRegister.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				SceneManagment.ChangeScene(event, "register.fxml", "Register");
+				SceneManager.changeScene(event, "register.fxml", "Register", 500, 600);
 			}
 		});
 		
+		buttonLogin.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				String username = tfUserName.getText().trim();
+				String password = tfPassword.getText().trim();
+			
+			
+				if(userLoginValidation(username, password)) {
+					UserLogin userLogin = new UserLogin();
+					userLogin.signInUser(username, password);
+					resetTextFields();
+				}
+			
+			}
+		});
 	}
 	
-	
+	private boolean userLoginValidation(String username, String password) {
+	    if (username.isEmpty()) {
+	        SceneManager.createAlert(AlertType.ERROR, "Error", "Username cannot be empty.");
+	        return false;
+	    }
 
+	    if (password.isEmpty()) {
+	        SceneManager.createAlert(AlertType.ERROR, "Error", "Password cannot be empty.");
+	        return false;
+	    }
+	    return true;
+	}
+
+	private void resetTextFields() {
+		this.tfUserName.setText("");
+		this.tfPassword.setText("");
+	}
 }

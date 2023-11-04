@@ -43,7 +43,7 @@
                   <Font name="Arial Rounded MT Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="buttonSignIn" layoutX="241.0" layoutY="432.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign In" textFill="#3cb22b" underline="true">
+            <Button fx:id="buttonLogin" layoutX="241.0" layoutY="432.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Login" textFill="#3cb22b">
                <font>
                   <Font name="Arial Rounded MT Bold" size="14.0" />
                </font>

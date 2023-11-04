@@ -13,36 +13,41 @@
    <children>
       <AnchorPane layoutX="50.0" layoutY="50.0" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;">
          <children>
-            <Button fx:id="buttonLogin" layoutX="50.0" layoutY="356.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #32CD32; -fx-cursor: hand;" text="Login">
+            <Button fx:id="buttonLogin" layoutX="50.0" layoutY="381.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #32CD32; -fx-cursor: hand;" text="Login">
                <font>
                   <Font name="Arial Rounded MT Bold" size="20.0" />
                </font>
             </Button>
-            <Label layoutX="91.0" layoutY="421.0" text="Don´t have an account?">
+            <Label layoutX="69.0" layoutY="448.0" text="Don´t have an account?">
                <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="buttonRegister" layoutX="229.0" layoutY="417.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Create Now" textAlignment="CENTER" textFill="LIMEGREEN">
+            <Button fx:id="buttonRegister" layoutX="230.0" layoutY="443.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Register Now" textAlignment="CENTER" textFill="LIMEGREEN">
                <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="tfUserName" alignment="CENTER" layoutX="50.0" layoutY="200.0" prefHeight="50.0" prefWidth="300.0" promptText="Username" style="-fx-background-color: D3D3D3; -fx-border-radius: 20;">
+            <TextField fx:id="tfUserName" alignment="CENTER" layoutX="50.0" layoutY="234.0" prefHeight="50.0" prefWidth="300.0" promptText="Username" style="-fx-background-color: D3D3D3; -fx-border-radius: 20;">
                <font>
                   <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="tfPassword" alignment="CENTER" layoutX="50.0" layoutY="271.0" prefHeight="50.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: D3D3D3; -fx-border-radius: 20;">
+            <TextField fx:id="tfPassword" alignment="CENTER" layoutX="50.0" layoutY="304.0" prefHeight="50.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: D3D3D3; -fx-border-radius: 20;">
                <font>
                   <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
             </TextField>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="125.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="128.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/user_icon.png" />
+                  <Image url="@../../resources/Logo.PNG" />
                </image>
             </ImageView>
+            <Label layoutX="133.0" layoutY="179.0" text="FinanSmart">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
