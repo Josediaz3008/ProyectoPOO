@@ -10,12 +10,12 @@ public class UserLogin extends DataBaseUtils{
 	
 	private PreparedStatement preparedStatement = null;
 	
-	public void signInUser(String username, String password) {
+	public void signInUser(User user) {
 	    initializeDataBaseConnection();
 
 	    try {
-	        if (isValidCredentials(username, password)) {
-	            // Usuario autenticado con éxito, cambia a la escena de inicio de sesión
+	        if (isValidCredentials(user)) {
+	            // Change Scene to Login
 	            SceneManager.createAlert(AlertType.INFORMATION, "Succesfully logged in", "Logged In");
 	        } else {
 	            SceneManager.createAlert(AlertType.ERROR, "Error", "The provided credentials are incorrect");
@@ -27,9 +27,9 @@ public class UserLogin extends DataBaseUtils{
 	    }
 	}
 
-	private boolean isValidCredentials(String username, String password) throws SQLException {
+	private boolean isValidCredentials(User user) throws SQLException {
 	    PreparedStatement preparedStatement = connection.prepareStatement("SELECT password FROM users WHERE username = ?");
-	    preparedStatement.setString(1, username);
+	    preparedStatement.setString(1, user.getUsername());
 	    this.resultSet = preparedStatement.executeQuery();
 
 	    if (!this.resultSet.isBeforeFirst()) {
@@ -38,7 +38,7 @@ public class UserLogin extends DataBaseUtils{
 
 	    while (this.resultSet.next()) {
 	        String retrievedPassword = this.resultSet.getString("password");
-	        if (retrievedPassword.equals(password)) {
+	        if (retrievedPassword.equals(user.getPasswordHash())) {
 	            return true;
 	        }
 	    }

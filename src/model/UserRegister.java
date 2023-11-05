@@ -13,14 +13,13 @@ public class UserRegister extends DataBaseUtils{
 		
 	}
 	
-	public void signUpUser(String username, String password) {
+	public void signUpUser(User user) {
 	    initializeDataBaseConnection();
-	    
 	    try {
-	        if (userExists(username)) {
+	        if (userExists(user)) {
 	            SceneManager.createAlert(AlertType.ERROR, "Error", "User already exists");
 	        } else {
-	            createUser(username, password);
+	            createUser(user);
 	            SceneManager.createAlert(AlertType.INFORMATION, "User Confirmation", "User successfully registered.");
 	        }
 	    } catch (SQLException e) {
@@ -31,17 +30,17 @@ public class UserRegister extends DataBaseUtils{
 	    }
 	}
 
-	private boolean userExists(String username) throws SQLException {
+	private boolean userExists(User user) throws SQLException {
 	    this.psCheckUserExists = this.connection.prepareStatement("SELECT * FROM users WHERE username = ?");
-	    this.psCheckUserExists.setString(1, username);
+	    this.psCheckUserExists.setString(1, user.getUsername());
 	    this.resultSet = psCheckUserExists.executeQuery();
 	    return this.resultSet.isBeforeFirst();
 	}
 
-	private void createUser(String username, String password) throws SQLException {
+	private void createUser(User user) throws SQLException {
 		this.psInsert = connection.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)");
-		this.psInsert.setString(1, username);
-		this.psInsert.setString(2, password);
+		this.psInsert.setString(1, user.getUsername());
+		this.psInsert.setString(2, user.getPasswordHash());
 		this.psInsert.executeUpdate();
 	}
 

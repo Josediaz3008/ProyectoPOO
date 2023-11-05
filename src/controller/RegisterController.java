@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import model.User;
 import model.UserRegister;
 import util.SceneManager;
 
@@ -56,11 +57,11 @@ public class RegisterController implements Initializable {
 				String confirmPassword = tfConfirmPassword.getText().trim();
 				
 				if(isValidCredentials(username, password, confirmPassword)) {
+					User user = new User(username, password);
 					UserRegister userRegister = new UserRegister();
-					userRegister.signUpUser(username, password);
+					userRegister.signUpUser(user);
 					resetTextFields();
 				}
-				
 				
 			}
 		});
