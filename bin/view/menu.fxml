@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+   <children>
+      <AnchorPane prefHeight="700.0" prefWidth="200.0" style="-fx-background-color: #8C807D;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="28.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/LogoSinFndo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonGraphics" alignment="CENTER" layoutY="461.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Graphics" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="35.0" layoutY="172.0" prefWidth="130.0" text="FinanSmart" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonReport" alignment="CENTER" layoutY="350.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Report" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonProyection" alignment="CENTER" layoutY="404.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Proyection" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutY="296.0" prefWidth="200.0" text="Menu" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="200.0" prefHeight="700.0" prefWidth="800.0">
+         <children>
+            <Label fx:id="labelWelcome" layoutX="141.0" layoutY="329.0" text="Welcome back username!" textFill="#1dd726" underline="true">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
