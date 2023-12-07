@@ -6,4 +6,8 @@ public class Income extends Transaction{
 		super(sqlId, id, name, description, amount);
 	}
 	
+	public Income(String name, String description, double amount) {
+		super(name, description, amount);
+	}
+	
 }

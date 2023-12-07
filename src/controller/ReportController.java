@@ -2,19 +2,23 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import DAO.ReportDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Expense;
 import model.Income;
+import util.SceneManager;
 
 public class ReportController implements Initializable{
 	
@@ -56,6 +60,10 @@ public class ReportController implements Initializable{
 	@FXML
 	private Button btnAddExpense;
 	
+	// Labels
+	@FXML
+	private Label labelTotalExpenses;
+	
 	// -------------------------------------- INCOMES ----------------------------------------------------
 	
 	// Table
@@ -84,6 +92,10 @@ public class ReportController implements Initializable{
 	@FXML
 	private Button btnAddIncome;
 	
+	// Label
+	@FXML
+	private Label labelTotalIncomes;
+	
 	// Initilalize
 
 	@Override
@@ -92,19 +104,81 @@ public class ReportController implements Initializable{
 		updateIncomesList();
 		
 		// ----------------------------------- Expenses ----------------------------------------------------
+		
+		configureExpensesTable();
+		
+		// Center Table Cells Info
+		
+		setStyleExpensesTable();
+		
+	    // Generate Delete Button <Expense>
+		
+		generateExpensesTableDeleteButton();
+		
+		// ADD EXPENSE BUTTON
+		
+		this.btnAddExpense.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				SceneManager.changeScene(event, "report-add-expenses.fxml", "Add Expense", 900, 700);
+				
+			}
+		});
+		
+		// ----------------------------------------------- Incomes ------------------------------------------------------------
+		configureIncomesTable();
+		
+		// Center Table Cells Info
+		
+	    setStyleIncomesTable();
+	    
+		// Generate Delete Button <Income>
+		
+	    generateIncomesTableDeleteButton();
+		
+		// Set Items to Table
+		this.tbExpenses.setItems(this.expensesList);
+		this.tbIncomes.setItems(this.incomesList);
+		
+		// Set Total Expenses and Incomes
+		setTotalExpenses();
+		setTotalIncomes();
+		
+		// ADD INCOME BUTTON
+		
+		this.btnAddIncome.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				SceneManager.changeScene(event, "report-add-incomes.fxml", "Add Income", 900, 700);
+				
+			}
+		});
+	}
+	
+	// --------------------------------------------------- Methods ------------------------------------------------------------------------------
+	
+	// -------------------------------------------------- Expenses -------------------------------------------------------------------
+	
+	private void configureExpensesTable() {
 		this.expenseId.setCellValueFactory(new PropertyValueFactory<Expense, Integer>("Id"));
 		this.expenseName.setCellValueFactory(new PropertyValueFactory<Expense, String>("Name"));
 		this.expenseDescription.setCellValueFactory(new PropertyValueFactory<Expense, String>("Description"));
 		this.expenseAmount.setCellValueFactory(new PropertyValueFactory<Expense, Double>("Amount"));
-		
-		// Center Table Cells Info
+	}
+	
+	
+	private void setStyleExpensesTable() {
 		this.expenseId.setStyle("-fx-alignment: CENTER;");
 		this.expenseName.setStyle("-fx-alignment: CENTER;");
 	    this.expenseDescription.setStyle("-fx-alignment: CENTER;");
 	    this.expenseAmount.setStyle("-fx-alignment: CENTER;");
 	    this.expenseBtn.setStyle("-fx-alignment: CENTER;");
 		
-	    // Generate Delete Button <Expense>
+	}
+	
+	private void generateExpensesTableDeleteButton() {
 		this.expenseBtn.setCellFactory(column -> new TableCell<>() {
 			private final Button deleteButton = new Button("Delete");
 			
@@ -112,11 +186,14 @@ public class ReportController implements Initializable{
 				deleteButton.setStyle("-fx-background-color: #FF0000; -fx-cursor: hand");
 				
 				deleteButton.setOnAction(event ->{
+					SceneManager.createAlert(AlertType.INFORMATION, "Delete Expense", "The selected Expense has been deleted");
 					Expense expense = getTableView().getItems().get(getIndex());
 					ReportDAO reportDAO = new ReportDAO();
 					reportDAO.deleteExpense(expense);
-					
 					getTableView().getItems().remove(getIndex());
+					updateExpensesList();
+					setTotalExpenses();
+					
 				});
 			}
 			
@@ -131,21 +208,41 @@ public class ReportController implements Initializable{
                 }
             }
 		});
-		
-		// ----------------------------------------------- Incomes ------------------------------------------------------------
+	}
+	
+	private void updateExpensesList() {
+		ReportDAO reportDAO = new ReportDAO();
+		this.expensesList = FXCollections.observableList(reportDAO.getAllExpenses());
+	}
+	
+	
+	private void setTotalExpenses() {
+		double total = 0;
+		for (Expense expense : this.expensesList) {
+			total += expense.getAmount();
+		}
+		this.labelTotalExpenses.setText("$ " + total);
+	}
+	
+	
+	// --------------------------------------------------- Incomes -------------------------------------------------------------------
+	
+	private void configureIncomesTable() {
 		this.incomeId.setCellValueFactory(new PropertyValueFactory<Income, Integer>("Id"));
 		this.incomeName.setCellValueFactory(new PropertyValueFactory<Income, String>("Name"));
 		this.incomeDescription.setCellValueFactory(new PropertyValueFactory<Income, String>("Description"));
 		this.incomeAmount.setCellValueFactory(new PropertyValueFactory<Income, Double>("Amount"));
-		
-		// Center Table Cells Info
+	}
+	
+	private void setStyleIncomesTable() {
 		this.incomeId.setStyle("-fx-alignment: CENTER;");
 		this.incomeName.setStyle("-fx-alignment: CENTER;");
 	    this.incomeDescription.setStyle("-fx-alignment: CENTER;");
 	    this.incomeAmount.setStyle("-fx-alignment: CENTER;");
 	    this.incomeBtn.setStyle("-fx-alignment: CENTER;");
-	    
-		// Generate Delete Button <Income>
+	}
+	
+	private void generateIncomesTableDeleteButton() {
 		this.incomeBtn.setCellFactory(column -> new TableCell<>() {
 			private final Button deleteButton = new Button("Delete");
 			
@@ -153,11 +250,13 @@ public class ReportController implements Initializable{
 				deleteButton.setStyle("-fx-background-color: #FF0000; -fx-cursor: hand");
 				
 				deleteButton.setOnAction(event ->{
-					Income expense = getTableView().getItems().get(getIndex());
+					SceneManager.createAlert(AlertType.INFORMATION, "Delete Income", "The selected Income has been deleted");
+					Income income = getTableView().getItems().get(getIndex());
 					ReportDAO reportDAO = new ReportDAO();
-					reportDAO.deleteIncome(expense);
-					
+					reportDAO.deleteIncome(income);
 					getTableView().getItems().remove(getIndex());
+					updateIncomesList();
+					setTotalIncomes();
 				});
 			}
 			
@@ -173,21 +272,19 @@ public class ReportController implements Initializable{
             }
 		});
 		
-		
-		// Set Items to Table
-		this.tbExpenses.setItems(this.expensesList);
-		this.tbIncomes.setItems(this.incomesList);
-	}
-	
-	// Methods
-	
-	private void updateExpensesList() {
-		ReportDAO reportDAO = new ReportDAO();
-		this.expensesList = FXCollections.observableList(reportDAO.getAllExpenses());
 	}
 	
 	private void updateIncomesList() {
 		ReportDAO reportDAO = new ReportDAO();
 		this.incomesList = FXCollections.observableList(reportDAO.getAllIncomes());
+	}
+	
+	
+	private void setTotalIncomes() {
+		double total = 0;
+		for (Income income : this.incomesList) {
+			total += income.getAmount();
+		}
+		this.labelTotalIncomes.setText("$ " + total);
 	}
 }

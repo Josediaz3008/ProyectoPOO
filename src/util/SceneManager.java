@@ -40,4 +40,16 @@ public abstract class SceneManager {
 		alert.show();
 	}
 	
+	public static void refreshScene(ActionEvent event) {
+	    Node sourceNode = (Node) event.getSource();
+	    Scene currentScene = sourceNode.getScene();
+	    Parent root = currentScene.getRoot();
+
+	    Stage stage = (Stage) currentScene.getWindow();
+	    stage.setScene(new Scene(root));
+	    stage.show();
+	}
+
+	
+	
 }

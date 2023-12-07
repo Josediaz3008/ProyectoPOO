@@ -5,10 +5,10 @@ import model.AppModel;
 import model.User;
 import javafx.event.ActionEvent;
 
-public class UserLogin extends DataBaseUtils{
+public class UserLoginDAO extends DataBaseUtils{
 	
 	// Constructor
-	public UserLogin() {
+	public UserLoginDAO() {
 		super();
 	}
 	

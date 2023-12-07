@@ -2,7 +2,7 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import DAO.UserLogin;
+import DAO.UserLoginDAO;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -48,9 +48,9 @@ public class LoginController implements Initializable{
 				
 				if(userLoginValidation(username, password)) {
 					User user = new User(username, password);
-					UserLogin userLogin = new UserLogin();
+					UserLoginDAO userLoginDAO = new UserLoginDAO();
 					
-					if(userLogin.signInUser(event, user)) {
+					if(userLoginDAO.signInUser(event, user)) {
 						SceneManager.changeScene(event, "menu.fxml", "Menu", 900, 700);
 					} else {
 						SceneManager.createAlert(AlertType.ERROR, "User Login", "Error, User registration failed. Please try again later");

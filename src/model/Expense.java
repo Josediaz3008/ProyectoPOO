@@ -6,5 +6,7 @@ public class Expense extends Transaction{
 		super(sqlId, id, name, description, amount);
 	}
 	
-	
+	public Expense(String name, String description, double amount) {
+		super(name, description, amount);
+	}
 }

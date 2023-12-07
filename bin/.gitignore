@@ -1,6 +1,5 @@
 /DAO/
-/application/
 /controller/
-/model/
-/util/
 /view/
+/util/
+/model/

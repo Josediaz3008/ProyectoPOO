@@ -113,4 +113,41 @@ public class ReportDAO extends DataBaseUtils{
 		}
 	}
 	
+	
+	public boolean addExpense(Expense expense) {
+		try {
+			initializeDataBaseConnection();
+			this.preparedStatement = connection.prepareStatement("INSERT INTO expenses (name, description, amount, user_id) VALUES (?, ?, ?, ?)");
+			this.preparedStatement.setString(1, expense.getName());
+			this.preparedStatement.setString(2, expense.getDescription());
+			this.preparedStatement.setDouble(3, expense.getAmount());
+			this.preparedStatement.setInt(4, AppModel.getCurrentUserId());
+			this.preparedStatement.executeUpdate();
+			return true;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			closeResources();
+		}
+	}
+	
+	
+	public boolean addIncome(Income income) {
+		try {
+			initializeDataBaseConnection();
+			this.preparedStatement = connection.prepareStatement("INSERT INTO incomes (name, description, amount, user_id) VALUES (?, ?, ?, ?)");
+			this.preparedStatement.setString(1, income.getName());
+			this.preparedStatement.setString(2, income.getDescription());
+			this.preparedStatement.setDouble(3, income.getAmount());
+			this.preparedStatement.setInt(4, AppModel.getCurrentUserId());
+			this.preparedStatement.executeUpdate();
+			return true;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			closeResources();
+		}
+	}
 }

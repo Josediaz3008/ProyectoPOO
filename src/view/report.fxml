@@ -47,11 +47,11 @@
             </Label>
          </children>
       </AnchorPane>
-      <ScrollPane hbarPolicy="NEVER" layoutX="200.0" prefHeight="700.0" prefWidth="700.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="200.0" prefHeight="700.0" prefWidth="700.0" vbarPolicy="NEVER">
         <content>
           <AnchorPane minHeight="700.0" minWidth="0.0" prefWidth="700.0">
                <children>
-                  <TableView fx:id="tbExpenses" layoutX="37.0" layoutY="88.0" prefHeight="200.0">
+                  <TableView fx:id="tbExpenses" layoutX="37.0" layoutY="71.0" maxHeight="225.0" prefHeight="225.0">
                     <columns>
                       <TableColumn fx:id="expenseId" prefWidth="50.0" text="ID" />
                       <TableColumn fx:id="expenseName" prefWidth="150.0" text="Name" />
@@ -60,22 +60,22 @@
                         <TableColumn fx:id="expenseBtn" prefWidth="125.0" />
                     </columns>
                   </TableView>
-                  <Label layoutX="37.0" layoutY="39.0" text="Expenses">
+                  <Label layoutX="37.0" layoutY="21.0" text="Expenses">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnAddExpense" layoutX="523.0" layoutY="42.0" mnemonicParsing="false" style="-fx-background-color: #32CD32; -fx-cursor: hand; -fx-border-color: black;" text="Add Expense">
+                  <Button fx:id="btnAddExpense" layoutX="523.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: #32CD32; -fx-cursor: hand; -fx-border-color: black;" text="Add Expense">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Label layoutX="37.0" layoutY="307.0" text="Incomes">
+                  <Label layoutX="37.0" layoutY="361.0" text="Incomes">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="36.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="tbIncomes" layoutX="37.0" layoutY="358.0" prefHeight="200.0">
+                  <TableView fx:id="tbIncomes" layoutX="37.0" layoutY="412.0" maxHeight="225.0" prefHeight="225.0">
                      <columns>
                         <TableColumn fx:id="incomeId" prefWidth="50.0" text="ID" />
                         <TableColumn fx:id="incomeName" prefWidth="150.0" text="Name" />
@@ -84,11 +84,31 @@
                         <TableColumn fx:id="incomeBtn" prefWidth="125.0" />
                      </columns>
                   </TableView>
-                  <Button fx:id="btnAddIncome" layoutX="523.0" layoutY="311.0" mnemonicParsing="false" style="-fx-background-color: #32CD32; -fx-cursor: hand; -fx-border-color: black;" text="Add Income">
+                  <Button fx:id="btnAddIncome" layoutX="528.0" layoutY="365.0" mnemonicParsing="false" style="-fx-background-color: #32CD32; -fx-cursor: hand; -fx-border-color: black;" text="Add Income">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="18.0" />
                      </font>
                   </Button>
+                  <Label layoutX="279.0" layoutY="308.0" text="Total Expenses: ">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelTotalExpenses" layoutX="447.0" layoutY="308.0" text="\$ ERROR" textFill="#f50606">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="284.0" layoutY="644.0" text="Total Incomes: ">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelTotalIncomes" layoutX="447.0" layoutY="644.0" text="\$ ERROR" textFill="#07f51e">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
         </content>

@@ -4,7 +4,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import DAO.UserRegister;
+import DAO.UserRegisterDAO;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -58,8 +58,8 @@ public class RegisterController implements Initializable {
 				
 				if(isValidCredentials(username, password, confirmPassword)) {
 					User user = new User(username, password);
-					UserRegister userRegister = new UserRegister();
-					if(userRegister.signUpUser(user)) {
+					UserRegisterDAO userRegisterDAO = new UserRegisterDAO();
+					if(userRegisterDAO.signUpUser(user)) {
 						SceneManager.createAlert(AlertType.INFORMATION, "User Register", "User Register Succesfully");
 					} else {
 						SceneManager.createAlert(AlertType.ERROR, "User Register", "Error, User registration failed. Please try again later");

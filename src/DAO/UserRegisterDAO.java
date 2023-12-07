@@ -3,10 +3,10 @@ package DAO;
 import java.sql.SQLException;
 import model.User;
 
-public class UserRegister extends DataBaseUtils{
+public class UserRegisterDAO extends DataBaseUtils{
 	
 	// Constructor
-	public UserRegister() {
+	public UserRegisterDAO() {
 		super();
 	}
 	
