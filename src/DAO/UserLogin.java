@@ -1,19 +1,24 @@
-package model;
+package DAO;
 
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+import model.AppModel;
+import model.User;
 import javafx.event.ActionEvent;
 
 public class UserLogin extends DataBaseUtils{
 	
-	private PreparedStatement preparedStatement = null;
+	// Constructor
+	public UserLogin() {
+		super();
+	}
 	
+	// Methods
 	public boolean signInUser(ActionEvent event, User user) {
-	    initializeDataBaseConnection();
 	    try {
+	    	initializeDataBaseConnection();
 	        if (isValidCredentials(user)) {
 	            AppModel.setCurrentUsername(user.getUsername());
+	            setUserId(user);
 	        	return true;
 	        }
 	        return false;    
@@ -26,8 +31,8 @@ public class UserLogin extends DataBaseUtils{
 	}
 
 	private boolean isValidCredentials(User user) throws SQLException {
-	    PreparedStatement preparedStatement = connection.prepareStatement("SELECT password FROM users WHERE username = ?");
-	    preparedStatement.setString(1, user.getUsername());
+	    this.preparedStatement = connection.prepareStatement("SELECT password FROM users WHERE username = ?");
+	    this.preparedStatement.setString(1, user.getUsername());
 	    this.resultSet = preparedStatement.executeQuery();
 
 	    if (!this.resultSet.isBeforeFirst()) {
@@ -44,17 +49,15 @@ public class UserLogin extends DataBaseUtils{
 	    return false;
 	}
 	
-	private void closeResources() {
-	    try {
-	        if (this.resultSet != null) {
-	        	this.resultSet.close();
-	        }
-	        if (this.preparedStatement != null) {
-	            this.preparedStatement.close();
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    closeDataBaseConnection();
+	private void setUserId(User user) throws SQLException {
+		this.preparedStatement = connection.prepareStatement("Select user_id FROM users WHERE username = ?");
+		this.preparedStatement.setString(1, user.getUsername());
+		this.resultSet = preparedStatement.executeQuery();
+		
+		while(this.resultSet.next()) {
+			int retrivedUserId = this.resultSet.getInt("user_id");
+			AppModel.setCurrentUserId(retrivedUserId);
+		}
 	}
+
 }

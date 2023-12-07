@@ -21,6 +21,7 @@ public class Main extends Application {
 			primaryStage.getIcons().add(icon);
 			primaryStage.setResizable(false);
 			primaryStage.show();
+			
 		} catch(IOException e) {
 			e.printStackTrace();
 		}

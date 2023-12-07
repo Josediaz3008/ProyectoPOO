@@ -24,15 +24,12 @@ public class MenuController implements Initializable{
 	@FXML
 	private Button buttonGraphics;
 	
-	// label
+	// Label
 	@FXML
 	private Label labelWelcome;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle resource) {
-		
-		this.labelWelcome.setText("Welcome back " + AppModel.getCurrentUser() + "!");
-		
 		this.buttonReport.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -40,7 +37,7 @@ public class MenuController implements Initializable{
 			}
 		});
 		
-		
+		this.labelWelcome.setText("Welcome Back " + AppModel.getCurrentUser() + "!");
 	}
 
 }
