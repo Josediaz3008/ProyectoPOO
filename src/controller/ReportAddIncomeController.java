@@ -50,6 +50,24 @@ public class ReportAddIncomeController implements Initializable{
 		@Override
 		public void initialize(URL url, ResourceBundle resourceBundle) {
 			
+			// -------------------- Initialize Menu Buttons ---------------------------------
+			
+			// Report
+			this.buttonReport.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					SceneManager.changeScene(event, "report.fxml", "Report", 900, 700);
+				}
+			});
+			
+			// Graphics
+			this.buttonGraphics.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					SceneManager.changeScene(event, "graphics.fxml", "Graphics", 900, 700);
+				}
+			});
+			
 			// Initialize Back Button
 			initializeBackButton();
 			

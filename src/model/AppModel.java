@@ -5,7 +5,7 @@ public abstract class AppModel {
 	private static String currentUsername;
 	private static int currentUserId;
 	
-	public static String getCurrentUser() {
+	public static String getCurrentUsername() {
 		return AppModel.currentUsername;
 	}
 	
@@ -20,5 +20,7 @@ public abstract class AppModel {
 	public static void setCurrentUserId(int userId) {
 		AppModel.currentUserId = userId;
 	}
+	
+	
 }
 

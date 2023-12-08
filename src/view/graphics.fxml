@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GraphicMenuController">
+   <children>
+      <AnchorPane prefHeight="700.0" prefWidth="200.0" style="-fx-background-color: #8C807D;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="28.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/LogoSinFndo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonGraphics" alignment="CENTER" layoutY="461.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Graphics" textAlignment="CENTER" textFill="#1dd726">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="35.0" layoutY="172.0" prefWidth="130.0" text="FinanSmart" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonReport" alignment="CENTER" layoutY="350.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Report" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonProyection" alignment="CENTER" layoutY="404.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Proyection" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutY="296.0" prefWidth="200.0" text="Menu" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="200.0" prefHeight="700.0" prefWidth="700.0">
+         <children>
+            <Label layoutX="180.0" layoutY="69.0" text="Graphics Menu">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="48.0" />
+               </font>
+            </Label>
+            <Line endX="221.0" layoutX="315.0" layoutY="125.0" startX="-138.0" stroke="#1dd726" />
+            <Label layoutX="189.0" layoutY="183.0" prefHeight="43.0" prefWidth="336.0" text="Please choose a graph type:">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonExpenses" layoutX="279.0" layoutY="270.0" mnemonicParsing="false" style="-fx-background-color: #FF0000; -fx-padding: 20; -fx-cursor: hand;" text="Expenses">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonIncomes" layoutX="279.0" layoutY="449.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="153.0" style="-fx-background-color: #1dd726; -fx-padding: 20; -fx-cursor: hand;" text="Incomes">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonBalance" layoutX="279.0" layoutY="359.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="153.0" style="-fx-background-color: FFFB00; -fx-padding: 20; -fx-cursor: hand;" text="Balance">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

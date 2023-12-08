@@ -30,6 +30,10 @@ public class MenuController implements Initializable{
 	
 	@Override
 	public void initialize(URL url, ResourceBundle resource) {
+		
+		// -------------------- Initialize Menu Buttons ---------------------------------
+		
+		// Report
 		this.buttonReport.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -37,7 +41,16 @@ public class MenuController implements Initializable{
 			}
 		});
 		
-		this.labelWelcome.setText("Welcome Back " + AppModel.getCurrentUser() + "!");
+		// Graphics
+		this.buttonGraphics.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				SceneManager.changeScene(event, "graphics.fxml", "Graphics", 900, 700);
+				
+			}
+		});
+		
+		this.labelWelcome.setText("Welcome Back " + AppModel.getCurrentUsername() + "!");
 	}
 
 }
