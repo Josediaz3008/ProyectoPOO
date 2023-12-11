@@ -1,7 +1,6 @@
 package application;
 	
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -14,7 +13,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
 			primaryStage.setTitle("Login");
 			primaryStage.setScene(new Scene(root, 500, 600));
 			Image icon = new Image("file:resources/Logo.png");

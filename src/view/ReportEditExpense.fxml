@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportAddIncomeController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportEditExpenseController">
    <children>
       <AnchorPane prefHeight="700.0" prefWidth="200.0" style="-fx-background-color: #8C807D;">
          <children>
@@ -45,11 +45,16 @@
                   <Font name="Arial Rounded MT Bold" size="36.0" />
                </font>
             </Label>
+            <Button fx:id="buttonSignOut" alignment="CENTER" layoutY="642.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign Out" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="200.0" prefHeight="700.0" prefWidth="700.0">
          <children>
-            <Label layoutX="193.0" layoutY="98.0" text="ADD INCOME">
+            <Label layoutX="175.0" layoutY="98.0" text="EDIT EXPENSE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="48.0" />
                </font>
@@ -59,17 +64,17 @@
                   <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
             </Button>
-            <TextField fx:id="tfIncomeName" alignment="CENTER" layoutX="200.0" layoutY="216.0" prefHeight="50.0" prefWidth="300.0" promptText="Income Name" style="-fx-background-color: D3D3D3;">
+            <TextField fx:id="tfName" alignment="CENTER" layoutX="200.0" layoutY="216.0" prefHeight="50.0" prefWidth="300.0" promptText="Expense Name" style="-fx-background-color: D3D3D3;">
                <font>
                   <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
             </TextField>
-            <TextArea fx:id="taIncomeDescription" layoutX="200.0" layoutY="293.0" prefHeight="150.0" prefWidth="300.0" promptText="Income Description" style="-fx-background-color: D3D3D3;">
+            <TextArea fx:id="taDescription" layoutX="200.0" layoutY="293.0" prefHeight="150.0" prefWidth="300.0" promptText="Expense Description" style="-fx-background-color: D3D3D3;">
                <font>
                   <Font name="Arial Rounded MT Bold" size="14.0" />
                </font>
             </TextArea>
-            <TextField fx:id="tfIncomeAmount" alignment="CENTER" layoutX="230.0" layoutY="473.0" prefHeight="50.0" prefWidth="270.0" promptText="Income Amount" style="-fx-background-color: D3D3D3;">
+            <TextField fx:id="tfAmount" alignment="CENTER" layoutX="230.0" layoutY="473.0" prefHeight="50.0" prefWidth="270.0" promptText="Expense Amount" style="-fx-background-color: D3D3D3;">
                <font>
                   <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
@@ -79,12 +84,12 @@
                   <Font name="Arial Rounded MT Bold" size="36.0" />
                </font>
             </Label>
-            <Button fx:id="buttonAddIncome" alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="548.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1dd726; -fx-cursor: hand;" text="ADD INCOME">
+            <Button fx:id="buttonEditExpense" alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="548.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1dd726; -fx-cursor: hand;" text="EDIT EXPENSE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
             </Button>
-            <Line endX="210.0" layoutX="312.0" layoutY="154.0" startX="-134.0" stroke="#1dd726" />
+            <Line endX="214.0" layoutX="312.0" layoutY="154.0" startX="-137.0" stroke="#1dd726" />
          </children>
       </AnchorPane>
    </children>

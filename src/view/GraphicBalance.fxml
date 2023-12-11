@@ -46,6 +46,11 @@
                   <Font name="Arial Rounded MT Bold" size="36.0" />
                </font>
             </Label>
+            <Button fx:id="buttonSignOut" alignment="CENTER" layoutY="642.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign Out" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="200.0" prefHeight="700.0" prefWidth="700.0">

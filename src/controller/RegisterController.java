@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.User;
 import util.SceneManager;
@@ -22,10 +23,10 @@ public class RegisterController implements Initializable {
 	private TextField tfUserName;
 	
 	@FXML
-	private TextField tfPassword;
+	private PasswordField tfPassword;
 	
 	@FXML
-	private TextField tfConfirmPassword;
+	private PasswordField tfConfirmPassword;
 	
 	// Buttons
 	@FXML
@@ -39,36 +40,10 @@ public class RegisterController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resource) {
 		
-		// Return to Login
-		buttonLogin.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "login.fxml", "Login", 500, 600);
-			}
-		});
+		initializeLoginButton();
 		
-		// User Register
-		buttonRegister.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				String username = tfUserName.getText().trim();
-				String password = tfPassword.getText().trim();
-				String confirmPassword = tfConfirmPassword.getText().trim();
-				
-				if(isValidCredentials(username, password, confirmPassword)) {
-					User user = new User(username, password);
-					UserRegisterDAO userRegisterDAO = new UserRegisterDAO();
-					if(userRegisterDAO.signUpUser(user)) {
-						SceneManager.createAlert(AlertType.INFORMATION, "User Register", "User Register Succesfully");
-					} else {
-						SceneManager.createAlert(AlertType.ERROR, "User Register", "Error, User registration failed. Please try again later");
-					}
-					resetTextFields();
-				}
-				
-			}
-		});
+		
+		initializeRegisterButton();
 		
 	}
 	
@@ -100,6 +75,37 @@ public class RegisterController implements Initializable {
 		this.tfUserName.setText("");
 		this.tfPassword.setText("");
 		this.tfConfirmPassword.setText("");
+	}
+	
+	private void initializeLoginButton() {
+		buttonLogin.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				SceneManager.changeScene(event, "Login.fxml", "Login", 500, 600);
+			}
+		});
+	}
+	
+	private void initializeRegisterButton() {
+		buttonRegister.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				String username = tfUserName.getText().trim();
+				String password = tfPassword.getText().trim();
+				String confirmPassword = tfConfirmPassword.getText().trim();
+				
+				if(isValidCredentials(username, password, confirmPassword)) {
+					User user = new User(username, password);
+					UserRegisterDAO userRegisterDAO = new UserRegisterDAO();
+					if(userRegisterDAO.signUpUser(user)) {
+						SceneManager.createAlert(AlertType.INFORMATION, "User Register", "User Register Succesfully");
+					} else {
+						SceneManager.createAlert(AlertType.ERROR, "User Register", "Error, User registration failed. Please try again later");
+					}
+					resetTextFields();
+				}
+			}
+		});	
 	}
 
 }

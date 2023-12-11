@@ -4,6 +4,8 @@ public abstract class AppModel {
 	
 	private static String currentUsername;
 	private static int currentUserId;
+	private static Expense lastExpense;
+	private static Income lastIncome;
 	
 	public static String getCurrentUsername() {
 		return AppModel.currentUsername;
@@ -21,6 +23,21 @@ public abstract class AppModel {
 		AppModel.currentUserId = userId;
 	}
 	
+	public static void setLastExpense(Expense expense) {
+		AppModel.lastExpense = expense;
+	}
+	
+	public static Expense getLastExpense() {
+		return AppModel.lastExpense;
+	}
+	
+	public static void setLastIncome(Income income) {
+		AppModel.lastIncome = income;
+	}
+	
+	public static Income getLastIncome() {
+		return AppModel.lastIncome;
+	}
 	
 }
 

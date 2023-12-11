@@ -10,17 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import util.SceneManager;
 
-public class GraphicMenuController implements Initializable{
-
-	// Menu Buttons
-	@FXML
-	private Button buttonReport;
-		
-	@FXML
-	private Button buttonProyection;
-		
-	@FXML
-	private Button buttonGraphics;
+public class GraphicController extends BaseMenuController implements Initializable{
 	
 	// Buttons 
 	@FXML
@@ -37,36 +27,28 @@ public class GraphicMenuController implements Initializable{
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		
-		// -------------------- Initialize Menu Buttons ---------------------------------
-		
-		// Report
-		this.buttonReport.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "report.fxml", "Report", 900, 700);
-			}
-		});
+		initializeMenu();
 		
 		
 		// Graphic Buttons
 		this.buttonExpenses.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "graphics-expenses.fxml", "Expense Graphic", 900, 700);
+				SceneManager.changeScene(event, "GraphicExpense.fxml", "Expense Graphic", 900, 700);
 			}
 		});
 		
 		this.buttonIncomes.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "graphics-incomes.fxml", "Income Graphic", 900, 700);
+				SceneManager.changeScene(event, "GraphicIncome.fxml", "Income Graphic", 900, 700);
 			}
 		});
 		
 		this.buttonBalance.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "graphics-balance.fxml", "Balance Graphic", 900, 700);
+				SceneManager.changeScene(event, "GraphicBalance.fxml", "Balance Graphic", 900, 700);
 			}
 		});
 	}

@@ -33,34 +33,10 @@ public class LoginController implements Initializable{
 	// Methods
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		buttonRegister.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "register.fxml", "Register", 500, 600);
-			}
-		});
 		
-		buttonLogin.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				String username = tfUserName.getText().trim();
-				String password = tfPassword.getText().trim();
-				
-				if(userLoginValidation(username, password)) {
-					User user = new User(username, password);
-					UserLoginDAO userLoginDAO = new UserLoginDAO();
-					
-					if(userLoginDAO.signInUser(event, user)) {
-						SceneManager.changeScene(event, "menu.fxml", "Menu", 900, 700);
-					} else {
-						SceneManager.createAlert(AlertType.ERROR, "User Login", "Error, User registration failed. Please try again later");
-					}
-			
-					resetTextFields();
-				}
-			
-			}
-		});
+		initializeRegisterButton();
+		
+		initializeLoginButton();
 	}
 	
 	private boolean userLoginValidation(String username, String password) {
@@ -79,5 +55,36 @@ public class LoginController implements Initializable{
 	private void resetTextFields() {
 		this.tfUserName.setText("");
 		this.tfPassword.setText("");
+	}
+	
+	private void initializeRegisterButton() {
+		buttonRegister.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				SceneManager.changeScene(event, "Register.fxml", "Register", 500, 600);
+			}
+		});
+	}
+	
+	private void initializeLoginButton() {
+		buttonLogin.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				String username = tfUserName.getText().trim();
+				String password = tfPassword.getText().trim();
+				
+				if(userLoginValidation(username, password)) {
+					User user = new User(username, password);
+					UserLoginDAO userLoginDAO = new UserLoginDAO();
+					
+					if(userLoginDAO.signInUser(event, user)) {
+						SceneManager.changeScene(event, "menu.fxml", "Menu", 900, 700);
+					} else {
+						SceneManager.createAlert(AlertType.ERROR, "User Login", "Error, User registration failed. Please try again later");
+					}
+					resetTextFields();
+				}
+			}
+		});
 	}
 }

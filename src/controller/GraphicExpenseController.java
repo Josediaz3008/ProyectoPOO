@@ -17,14 +17,7 @@ import javafx.scene.control.Label;
 import model.Expense;
 import util.SceneManager;
 
-public class GraphicExpenseController implements Initializable{
-	
-	// Menu Buttons
-	@FXML
-	private Button buttonReport;
-			
-	@FXML
-	private Button buttonProyection;
+public class GraphicExpenseController extends BaseMenuController implements Initializable{
 	
 	// CHARTS
 	@FXML
@@ -51,21 +44,13 @@ public class GraphicExpenseController implements Initializable{
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		
-		// -------------------- Initialize Menu Buttons ---------------------------------
-		
-		// Report
-		this.buttonReport.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "report.fxml", "Report", 900, 700);
-			}
-		});
+		initializeMenu();
 		
 		// Back button
 		this.buttonBack.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "graphics.fxml", "Graphics", 900, 700);
+				SceneManager.changeScene(event, "Graphic.fxml", "Graphics", 900, 700);
 			}
 		});
 		
