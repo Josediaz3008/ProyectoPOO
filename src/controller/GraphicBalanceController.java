@@ -2,40 +2,35 @@ package controller;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import DAO.ReportDAO;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import model.Expense;
 import model.Income;
-import util.SceneManager;
 
-public class GraphicBalanceController extends BaseMenuController implements Initializable{
+public class GraphicBalanceController extends BaseExtendedGraphicController implements Initializable{
+	
+	// Attributes
 	
 	// Bar Chart
 	@FXML
-	private BarChart barChart;
+	private BarChart<String, Double> barChart;
 	
 	// Series
-	private XYChart.Series expensesSeries;
+	private XYChart.Series<String, Double> expensesSeries;
 	
-	private XYChart.Series incomesSeries;
+	private XYChart.Series<String, Double> incomesSeries;
 	
 	// Totals
 	private double totalExpenseAmount;
 	
 	private double totalIncomeAmount;
-	
-	// Back Buttons
-	@FXML
-	private Button buttonBack;	
 	
 	// Labels
 	@FXML
@@ -48,24 +43,27 @@ public class GraphicBalanceController extends BaseMenuController implements Init
 	private Label labelTotalBalance;
 	
 	
+	// Constructor
+	public GraphicBalanceController() {
+		super();
+	}
+	
+	// Methods
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		
 		initializeMenu();
 						
-		// Back button
-		this.buttonBack.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "Graphic.fxml", "Graphics", 900, 700);
-			}
-		});
+		initializeBackButton();
 		
 		initializeIncomesSeries();
 		initializeExpensesSeries();
 		
-		this.barChart.getData().addAll(this.expensesSeries);
-		this.barChart.getData().addAll(this.incomesSeries);
+		List<XYChart.Series<String, Double>> seriesList = new ArrayList<>();
+		seriesList.add(this.expensesSeries);
+		seriesList.add(this.incomesSeries);
+		this.barChart.getData().addAll(seriesList);
+
 		
 		this.labelTotalIncomes.setText(String.valueOf(this.totalIncomeAmount));
 		this.labelTotalExpenses.setText(String.valueOf(this.totalExpenseAmount));
@@ -74,7 +72,7 @@ public class GraphicBalanceController extends BaseMenuController implements Init
 	}
 	
 	private void initializeIncomesSeries() {
-		this.incomesSeries = new XYChart.Series();
+		this.incomesSeries = new XYChart.Series<String, Double>();
 		this.incomesSeries.setName("Incomes");
 		
 		ReportDAO reportDAO = new ReportDAO();
@@ -85,11 +83,11 @@ public class GraphicBalanceController extends BaseMenuController implements Init
 			this.totalIncomeAmount += income.getAmount();
 		}
 		
-		this.incomesSeries.getData().add(new XYChart.Data("Incomes", this.totalIncomeAmount));
+		this.incomesSeries.getData().add(new XYChart.Data<String, Double>("Incomes", this.totalIncomeAmount));
 	}
 	
 	private void initializeExpensesSeries() {
-		this.expensesSeries = new XYChart.Series();
+		this.expensesSeries = new XYChart.Series<String, Double>();
 		this.expensesSeries.setName("Expenses");
 		
 		ReportDAO reportDAO = new ReportDAO();
@@ -100,7 +98,7 @@ public class GraphicBalanceController extends BaseMenuController implements Init
 			this.totalExpenseAmount += expense.getAmount();
 		}
 		
-		this.expensesSeries.getData().add(new XYChart.Data("Expenses", this.totalExpenseAmount));
+		this.expensesSeries.getData().add(new XYChart.Data<String, Double>("Expenses", this.totalExpenseAmount));
 	}
 
 	private void initializeTotalLabelBalance() {

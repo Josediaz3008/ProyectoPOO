@@ -49,7 +49,5 @@ public abstract class SceneManager {
 	    stage.setScene(new Scene(root));
 	    stage.show();
 	}
-
-	
-	
+		
 }

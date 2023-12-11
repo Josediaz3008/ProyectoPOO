@@ -3,21 +3,18 @@ package controller;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import DAO.ReportDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import model.Expense;
-import util.SceneManager;
 
-public class GraphicExpenseController extends BaseMenuController implements Initializable{
+public class GraphicExpenseController extends BaseExtendedGraphicController implements Initializable{
+	
+	// Attributes
 	
 	// CHARTS
 	@FXML
@@ -36,24 +33,21 @@ public class GraphicExpenseController extends BaseMenuController implements Init
 	@FXML
 	private Label labelTotal;
 	
-	// Back Buttons
-	@FXML
-	private Button buttonBack;
+	// Constructor
+	
+	public GraphicExpenseController() {
+		super();
+	}
 
+	// Methods
+	
 	// Initialize
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		
 		initializeMenu();
 		
-		// Back button
-		this.buttonBack.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "Graphic.fxml", "Graphics", 900, 700);
-			}
-		});
-		
+		initializeBackButton();
 		
 		initializeExpenses();
 		initializeTotalExpenseAmount();

@@ -17,6 +17,8 @@ import model.User;
 import util.SceneManager;
 
 public class RegisterController implements Initializable {
+	
+	// Attributes
 
 	// Text Fields
 	@FXML
@@ -34,6 +36,11 @@ public class RegisterController implements Initializable {
 	
 	@FXML
 	private Button buttonLogin;
+	
+	// Constructor
+	public RegisterController() {
+		
+	}
 	
 	// Methods
 

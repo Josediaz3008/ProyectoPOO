@@ -16,6 +16,8 @@ import util.SceneManager;
 
 public class LoginController implements Initializable{
 	
+	// Attributes
+	
 	// Buttons
 	@FXML
 	private Button buttonLogin;
@@ -29,6 +31,11 @@ public class LoginController implements Initializable{
 	
 	@FXML
 	private TextField tfPassword;
+	
+	// Constructor
+	public LoginController() {
+		
+	}
 
 	// Methods
 	@Override

@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class Income extends Transaction{
 
+	// Constructors
 	public Income(int sqlId, int id, String name, String description, double amount, Date date) {
 		super(sqlId, id, name, description, amount, date);
 	}

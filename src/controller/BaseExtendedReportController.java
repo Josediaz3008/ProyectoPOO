@@ -14,6 +14,8 @@ import util.SceneManager;
 
 public abstract class BaseExtendedReportController extends BaseMenuController {
 
+	// Attributes
+	
 	// Buttons
 	@FXML
 	protected Button buttonBack;
@@ -28,6 +30,11 @@ public abstract class BaseExtendedReportController extends BaseMenuController {
 	// Text Area
 	@FXML
 	protected TextArea taDescription;
+	
+	// Constructor
+	public BaseExtendedReportController() {
+		super();
+	}
 	
 	// ----------------------------------------------------------- Methods ----------------------------------------------------------------------
 	

@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import util.SceneManager;
 
 public abstract class BaseMenuController {
+	
+	// Attributes
 
 	// Buttons
 	@FXML
@@ -25,9 +27,12 @@ public abstract class BaseMenuController {
 	public BaseMenuController() {
 	}
 	
+	// Methods
+	
 	// Iinitialize Menu
 	protected void initializeMenu() {
 		initializeReportButton();
+		initializeProyectionButton();
 		initializeGraphicsButton();
 		initializeSignOutButton();
 	}
@@ -58,6 +63,16 @@ public abstract class BaseMenuController {
 			@Override
 			public void handle(ActionEvent event) {
 				SceneManager.changeScene(event, "Login.fxml", "Login", 500, 600);
+			}
+		});
+	}
+	
+	private void initializeProyectionButton() {
+		// Proyection
+		this.buttonProyection.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				SceneManager.changeScene(event, "Proyection.fxml", "Proyection", 900, 700);
 			}
 		});
 	}

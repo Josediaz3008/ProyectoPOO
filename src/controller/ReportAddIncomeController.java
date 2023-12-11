@@ -15,9 +15,18 @@ import model.Income;
 import util.SceneManager;
 
 public class ReportAddIncomeController extends BaseExtendedReportController implements Initializable{
+	
+		// Attributes
 		
 		@FXML
 		private Button buttonAddIncome;
+		
+		// Constructor
+		public ReportAddIncomeController() {
+			super();
+		}
+		
+		// ------------------------------------------------ Methods --------------------------------------------------------------------
 
 		@Override
 		public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,8 +43,6 @@ public class ReportAddIncomeController extends BaseExtendedReportController impl
 			initializeAddIncomeButton();
 			
 		}
-		
-		// ------------------------------------------------ Methods --------------------------------------------------------------------
 		
 		private void initializeAddIncomeButton() {
 			this.buttonAddIncome.setOnAction(new EventHandler<ActionEvent>() {

@@ -9,10 +9,12 @@ import model.Income;
 
 public class ReportDAO extends DataBaseUtils{
 	
+	// Constructor
 	public ReportDAO() {
 		super();
 	}
 	
+	// Methods
 	public ArrayList<Expense> getAllExpenses() {
 		ArrayList<Expense> expenses = new ArrayList<Expense>();
 		int counter = 0;

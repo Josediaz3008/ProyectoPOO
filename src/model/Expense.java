@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class Expense extends Transaction{
 
+	// Constructors
 	public Expense(int sqlId, int id, String name, String description, double amount, Date date) {
 		super(sqlId, id, name, description, amount, date);
 	}

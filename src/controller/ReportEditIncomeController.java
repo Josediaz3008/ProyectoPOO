@@ -15,9 +15,17 @@ import util.SceneManager;
 
 public class ReportEditIncomeController extends BaseExtendedReportController implements Initializable{
 	
+	// Attributes
 	@FXML
 	private Button buttonEditIncome;
 
+	// Constructor
+	public ReportEditIncomeController() {
+		super();
+	}
+	
+	// Methods
+	
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		
@@ -32,8 +40,6 @@ public class ReportEditIncomeController extends BaseExtendedReportController imp
 		initializeEditIncomeButton();
 	
 	}
-
-	// ----------------------------------------------------------------------------------------------------------------------------------------
 	
 	private void initializeEditIncomeButton() {
 		this.buttonEditIncome.setOnAction(new EventHandler<ActionEvent>() {

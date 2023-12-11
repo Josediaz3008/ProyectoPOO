@@ -16,9 +16,18 @@ import util.SceneManager;
 
 public class ReportAddExpenseController extends BaseExtendedReportController implements Initializable {
 	
+	// Attributes
+	
 	@FXML
 	private Button buttonAddExpense;
+	
+	// Constructor
+	public ReportAddExpenseController() {
+		super();
+	}
 
+	// ------------------------------------------------ Methods --------------------------------------------------------------------
+	
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		
@@ -34,8 +43,6 @@ public class ReportAddExpenseController extends BaseExtendedReportController imp
 		initializeAddExpenseButton();
 		
 	}
-	
-	// ------------------------------------------------ Methods --------------------------------------------------------------------
 	
 	private void initializeAddExpenseButton() {
 		this.buttonAddExpense.setOnAction(new EventHandler<ActionEvent>() {

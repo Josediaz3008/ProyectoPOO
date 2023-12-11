@@ -12,6 +12,8 @@ import util.SceneManager;
 
 public class GraphicController extends BaseMenuController implements Initializable{
 	
+	// Attributes
+	
 	// Buttons 
 	@FXML
 	private Button buttonExpenses;
@@ -21,6 +23,14 @@ public class GraphicController extends BaseMenuController implements Initializab
 	
 	@FXML
 	private Button buttonBalance;
+	
+	// Constructor
+	
+	public GraphicController() {
+		super();
+	}
+	
+	// Methods
 	
 	// Initialize
 	

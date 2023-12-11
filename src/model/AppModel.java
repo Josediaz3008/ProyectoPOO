@@ -2,11 +2,15 @@ package model;
 
 public abstract class AppModel {
 	
+	// Attributes
+	
 	private static String currentUsername;
 	private static int currentUserId;
 	private static Expense lastExpense;
 	private static Income lastIncome;
 	
+	
+	// Getters and Setters
 	public static String getCurrentUsername() {
 		return AppModel.currentUsername;
 	}

@@ -17,9 +17,11 @@ public abstract class DataBaseUtils {
 	private String password = "root";
 	private String url = "jdbc:mysql://localhost:3306/prpoo";
 	
+	// Constructor
 	public DataBaseUtils() {
 	}
 	
+	// Methods
 	protected void initializeDataBaseConnection() throws SQLException {
 		this.connection = DriverManager.getConnection(this.url, this.username, this.password);
 	}

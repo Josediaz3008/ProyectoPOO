@@ -9,10 +9,18 @@ import model.AppModel;
 
 public class MenuController extends BaseMenuController implements Initializable{
 	
+	// Attributes
+	
 	// Label
 	@FXML
 	private Label labelWelcome;
 	
+	// Constructor
+	public MenuController() {
+		super();
+	}
+	
+	// Methods
 	@Override
 	public void initialize(URL url, ResourceBundle resource) {
 		

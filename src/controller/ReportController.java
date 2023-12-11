@@ -26,6 +26,8 @@ import util.SceneManager;
 
 public class ReportController extends BaseMenuController implements Initializable{
 	
+	// Attributes
+	
 	// -------------------------------------- EXPENSES ------------------------------------------------
 	
 	// Table
@@ -110,7 +112,14 @@ public class ReportController extends BaseMenuController implements Initializabl
 	@FXML
 	private ChoiceBox<String> incomesFilter;
 	
-	// Initilalize
+	// Constructor
+	public ReportController() {
+		super();
+	}
+	
+	// Methods
+	
+	// Initialize
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
