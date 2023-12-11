@@ -15,7 +15,7 @@ public abstract class BaseMenuController {
 	private Button buttonReport;
 		
 	@FXML
-	private Button buttonProyection;
+	private Button buttonProjection;
 		
 	@FXML
 	private Button buttonGraphics;
@@ -69,10 +69,10 @@ public abstract class BaseMenuController {
 	
 	private void initializeProyectionButton() {
 		// Proyection
-		this.buttonProyection.setOnAction(new EventHandler<ActionEvent>() {
+		this.buttonProjection.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				SceneManager.changeScene(event, "Proyection.fxml", "Proyection", 900, 700);
+				SceneManager.changeScene(event, "Projection.fxml", "Proyection", 900, 700);
 			}
 		});
 	}

@@ -36,7 +36,7 @@
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
             </Button>
-            <Button fx:id="buttonProyection" alignment="CENTER" layoutY="404.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Proyection" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="buttonProjection" alignment="CENTER" layoutY="404.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Projection" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>

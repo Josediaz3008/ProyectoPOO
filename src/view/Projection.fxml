@@ -36,7 +36,7 @@
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
             </Button>
-            <Button fx:id="buttonProyection" alignment="CENTER" layoutY="404.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Proyection" textAlignment="CENTER" textFill="#1dd726">
+            <Button fx:id="buttonProjection" alignment="CENTER" layoutY="404.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Projection" textAlignment="CENTER" textFill="#1dd726">
                <font>
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
@@ -55,13 +55,13 @@
       </AnchorPane>
       <AnchorPane layoutX="200.0" prefHeight="700.0" prefWidth="700.0">
          <children>
-            <Label layoutX="229.0" layoutY="54.0" text="Proyection">
+            <Label layoutX="236.0" layoutY="60.0" text="Projection">
                <font>
                   <Font name="Arial Rounded MT Bold" size="48.0" />
                </font>
             </Label>
             <Line endX="169.0" endY="-1.0" layoutX="313.0" layoutY="118.0" startX="-83.0" stroke="#1dd726" />
-            <LineChart fx:id="lineChart" layoutX="10.0" layoutY="150.0" prefHeight="400.0" prefWidth="680.0" title="Proyection in 3 Months">
+            <LineChart fx:id="lineChart" layoutX="10.0" layoutY="150.0" prefHeight="400.0" prefWidth="680.0" title="Projection in 2 Months">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
